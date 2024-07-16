@@ -101,7 +101,11 @@ const catorangesitting = new Image();
 catorangesitting.src = './img/cat_orange_sitting.png'
 const catgameboy = new Image();
 catgameboy.src = './img/cat_gameboy.png'
-
+const arwen = new Image();
+arwen.src = './img/arwen_img.png'
+const aragorn = new Image();
+aragorn.src = './img/aragorn_img.png'
+//MARK: Characters
 charactersMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
     // if (symbol === 1267) {
@@ -146,7 +150,6 @@ charactersMap.forEach((row, i) => {
         })
       )
     } else if (symbol === 1270) {
-      //MARK: ORANGE CAT
       characters.push(new Character({
         position: {
           x: j * Boundary.width + offset.x,
@@ -159,12 +162,11 @@ charactersMap.forEach((row, i) => {
         },
         animate: true,
         scale: 0.2,
-        dialogue: ['----.', 'Meoowwwww... je suis perdu...']
+        dialogue: ['Meoowwwww... je suis perdu...']
       }))
 
     }
     else if (symbol === 1271) {
-      //MARK: ORANGE CAT
       characters.push(new Character({
         position: {
           x: j * Boundary.width + offset.x,
@@ -177,13 +179,12 @@ charactersMap.forEach((row, i) => {
         },
         animate: true,
         scale: 0.2,
-        dialogue: ['zzzzzzzzzzzzzzzzz', '--...', 'let me sleep']
+        dialogue: ['zzzzzzzzzzzzzzzzz', '---..', 'let me sleep']
       }))
 
     }
 
     else if (symbol === 1272) {
-      //MARK: ORANGE CAT
 
       characters.push(new Character({
         position: {
@@ -197,7 +198,7 @@ charactersMap.forEach((row, i) => {
         },
         animate: true,
         scale: 0.2,
-        dialogue: ['Meow meow meow.', 'Une belle journee!', '...--']
+        dialogue: ['Meow meow meow.', 'Une belle journee!', '.----']
       }))
 
     }
@@ -228,7 +229,7 @@ charactersMap.forEach((row, i) => {
         },
         animate: true,
         scale: 0.2,
-        dialogue: ['...', 'Laisse moi prendre une marche', '...--']
+        dialogue: ['...', 'Laisse moi prendre une marche', '..---']
       }))
     }
 
@@ -245,11 +246,10 @@ charactersMap.forEach((row, i) => {
         },
         animate: true,
         scale: 0.2,
-        dialogue: ['Pleasee ouvre la porte !', '..---']
+        dialogue: ['Pleasee ouvre la porte !']
       }))
 
     } else if (symbol === 1275) {
-      //MARK: ORANGE CAT
       characters.push(new Character({
         position: {
           x: j * Boundary.width + offset.x,
@@ -266,7 +266,6 @@ charactersMap.forEach((row, i) => {
       }))
     }
     else if (symbol === 1276) {
-      //MARK: ORANGE CAT
 
       characters.push(new Character({
         position: {
@@ -280,6 +279,43 @@ charactersMap.forEach((row, i) => {
         },
         animate: true,
         scale: 0.2,
+        dialogue: ['...', 'gotta go fast', "je dois trouver un chat noir, blanc et brun"]
+      }))
+    }
+
+    else if (symbol === 1277) {
+
+      characters.push(new Character({
+        position: {
+          x: j * Boundary.width + offset.x,
+          y: i * Boundary.height + offset.y - 30
+        },
+        image: arwen,
+        frames: {
+          max: 4,
+          hold: 10
+        },
+        animate: false,
+        scale: 0.7,
+        dialogue: ['...', 'gotta go fast', "je dois trouver un chat blanc, noir, orange et brun"]
+      }))
+    }
+
+
+    else if (symbol === 1278) {
+
+      characters.push(new Character({
+        position: {
+          x: j * Boundary.width + offset.x,
+          y: i * Boundary.height + offset.y - 30
+        },
+        image: aragorn,
+        frames: {
+          max: 4,
+          hold: 10
+        },
+        animate: false,
+        scale: 0.7,
         dialogue: ['...', 'gotta go fast', "je dois trouver un chat blanc, noir, orange et brun"]
       }))
     }
