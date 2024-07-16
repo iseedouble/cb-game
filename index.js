@@ -146,7 +146,7 @@ charactersMap.forEach((row, i) => {
           },
           animate: true,
           scale: 1.5,
-          dialogue: ['Steven: COUCOU!', 'Joyeux anniversaire, Camille!!!!', "Bienvenue dans ce jeu special que j'ai cree pour toi. Pendant 3 jours, tu auras un nouveau puzzle a resoudre chaque jour.", "Aujourd'hui, le jour 1, tu dois chercher tous les 5 chats pour un indice !"]
+          dialogue: ['Steven: COUCOU!', 'BONNE FETE Camille!!!!', "Bienvenue dans ce jeu special que j'ai cree pour toi. Pendant 3 jours, tu auras un petit puzzle a resoudre.", "Aujourd'hui, tu dois chercher tous les 3 chats pour un indice !"]
         })
       )
     } else if (symbol === 1270) {
@@ -297,7 +297,7 @@ charactersMap.forEach((row, i) => {
         },
         animate: false,
         scale: 0.7,
-        dialogue: ['...', 'gotta go fast', "je dois trouver un chat blanc, noir, orange et brun"]
+        dialogue: ['Arwen: Puisses-tu trouver la joie et la paix en ce jour spécial, chère Camille.']
       }))
     }
 
@@ -316,7 +316,7 @@ charactersMap.forEach((row, i) => {
         },
         animate: false,
         scale: 0.7,
-        dialogue: ['...', 'gotta go fast', "je dois trouver un chat blanc, noir, orange et brun"]
+        dialogue: ['Aragorn: Joyeux anniversaire, Camille, que ta journée soit magique !']
       }))
     }
 
