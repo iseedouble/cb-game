@@ -422,8 +422,8 @@ const player = new Sprite({
     //   y: canvas.height / 2 - 68 / 2
     // },
     position: {
-        x: canvas.width / 2 - playerDownImage.width / 2,
-        y: canvas.height / 2 - playerDownImage.height / 2
+        x: canvas.width / 2 - 0,
+        y: canvas.height / 2 - 0
     },
     image: playerDownImage,
     frames: {

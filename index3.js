@@ -101,7 +101,6 @@ charactersMap.forEach((row, i) => {
 
         }
         else if (symbol === 9999) {
-            console.log("???")
             charactersHome.push(new Character({
                 position: {
                     x: j * Boundary.width + offset.x,
@@ -159,8 +158,8 @@ const playerHome = new Sprite({
     //   y: canvas.height / 2 - 68 / 2
     // },
     position: {
-        x: canvas.width / 2 - playerDownImage.width / 2,
-        y: canvas.height / 2 - playerDownImage.height / 2
+        x: canvas.width / 2 - 0,
+        y: canvas.height / 2 - 0
     },
     image: playerDownImage,
     frames: {
@@ -174,6 +173,11 @@ const playerHome = new Sprite({
         down: playerDownImage
     }
 })
+
+// const dataDiv = document.getElementById('data-display');
+// dataDiv.textContent = playerHome.position.x + " " + playerHome.position.y + " " + canvas.width + " " + canvas.height + " " + playerDownImage.width + " " + playerDownImage.height;
+
+// dataDiv.textContent = playerWorldPosition.x + " " + playerWorldPosition.y + " " + offset.x + " " + " " + offset.y + " " + canvas.width + " " + canvas.height;
 
 const backgroundHome = new Sprite({
     position: {
