@@ -96,7 +96,7 @@ charactersMap.forEach((row, i) => {
                 },
                 animate: true,
                 scale: 0.2,
-                dialogue: ["Merci de m'avoir ouverte la porte !"]
+                dialogue: ["Merci de m'avoir ouvert la porte !"]
             }))
 
         }
