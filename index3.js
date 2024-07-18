@@ -495,7 +495,8 @@ document.getElementById('left').addEventListener('touchend', () => stopPlayer('a
 document.getElementById('down').addEventListener('touchend', () => stopPlayer('s'))
 document.getElementById('right').addEventListener('touchend', () => stopPlayer('d'))
 
-document.getElementById('interact').addEventListener('touchstart', () => {
+document.getElementById('interact').addEventListener('touchstart', (event) => {
+    event.preventDefault();
     if (playerHome.isInteracting) {
         playerHome.interactionAsset.dialogueIndex++
 
