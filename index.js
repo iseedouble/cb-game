@@ -11,6 +11,37 @@ canvas.height = window.innerHeight
 // }
 
 // window.addEventListener('resize', resizeCanvas)
+
+const correctCode = "0728"; // Replace with your desired code
+
+// Function to show the code entry interface
+function showCodeEntry() {
+  document.getElementById('codeEntry').style.display = 'block';
+}
+
+// Function to hide the code entry interface
+function hideCodeEntry() {
+  document.getElementById('codeEntry').style.display = 'none';
+}
+
+// Add event listener for the submit button
+document.getElementById('submitCode').addEventListener('click', () => {
+  const enteredCode = document.getElementById('codeInput').value;
+  if (enteredCode === correctCode) {
+    // Code is correct, trigger the desired action
+    // For example, navigate to another page
+    //Animation
+    document.body.classList.add('fade-out');
+
+    setTimeout(() => {
+      window.location.href = 'game_birthday_home.html'; // Replace with your desired HTML file name
+    }, 2000); // Replace with your desired HTML file name
+  } else {
+    // Code is incorrect, show an error message
+  }
+});
+
+
 window.addEventListener('resize', function () {
   const url = new URL(window.location);
   url.searchParams.set('x', playerWorldPosition.x);
@@ -105,6 +136,8 @@ const arwen = new Image();
 arwen.src = './img/arwen_img.png'
 const aragorn = new Image();
 aragorn.src = './img/aragorn_img.png'
+const invisibleInteractionForDoor = new Image();
+invisibleInteractionForDoor.src = './img/invisible_image_48x48.png'
 //MARK: Characters
 charactersMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
@@ -146,7 +179,7 @@ charactersMap.forEach((row, i) => {
           },
           animate: true,
           scale: 1.5,
-          dialogue: ['Steven: COUCOU!', 'BONNE FETE Camille!!!!', "Bienvenue dans ce jeu special que j'ai cree pour toi. Pendant 3 jours, tu auras un petit puzzle a resoudre.", "Aujourd'hui, tu dois chercher tous les 3 chats pour un indice !"]
+          dialogue: ['Steven: COUCOU!', 'BONNE FETE Camille!!!!', "Bienvenue dans ce jeu special que j'ai cree pour toi. Pendant 3 jours, tu auras un petit puzzle a resoudre.", "Aujourd'hui, tu parler a tous les chats pour un indice hihi!"]
         })
       )
     } else if (symbol === 1270) {
@@ -299,7 +332,31 @@ charactersMap.forEach((row, i) => {
         scale: 0.7,
         dialogue: ['Arwen: Puisses-tu trouver la joie et la paix en ce jour spécial, chère Camille.']
       }))
+    } else if (symbol === 9999) {
+      //MARK: TODO: trouver un moyen dinteragir avec la porte 
+      characters.push(new Character({
+        position: {
+          x: j * Boundary.width + offset.x,
+          y: i * Boundary.height + offset.y
+        },
+        image: invisibleInteractionForDoor,
+        scale: 1,
+        dialogue: ['...', '......', '.............']
+      }))
     }
+    else if (symbol === 9998) {
+      //MARK: TODO: trouver un moyen dinteragir avec la porte 
+      characters.push(new Character({
+        position: {
+          x: j * Boundary.width + offset.x,
+          y: i * Boundary.height + offset.y
+        },
+        image: invisibleInteractionForDoor,
+        scale: 1,
+        dialogue: ['...', '......', '.............'],
+      }))
+    }
+
 
 
     else if (symbol === 1278) {
@@ -741,7 +798,7 @@ function animate() {
     checkForCharacterCollision({
       characters,
       player,
-      characterOffset: { x: 3, y: 0 }
+      characterOffset: { x: 3, y: 0 },
     })
 
     for (let i = 0; i < boundaries.length; i++) {
@@ -813,7 +870,7 @@ function animate() {
     checkForCharacterCollision({
       characters,
       player,
-      characterOffset: { x: -3, y: 0 }
+      characterOffset: { x: -3, y: 0 },
     })
 
     for (let i = 0; i < boundaries.length; i++) {
@@ -860,7 +917,7 @@ window.addEventListener('keydown', (e) => {
       case ' ':
         player.interactionAsset.dialogueIndex++
 
-        const { dialogueIndex, dialogue } = player.interactionAsset
+        const { dialogueIndex, dialogue, onConversationEnd } = player.interactionAsset
         if (dialogueIndex <= dialogue.length - 1) {
           document.querySelector('#characterDialogueBox').innerHTML =
             player.interactionAsset.dialogue[dialogueIndex]
@@ -871,6 +928,10 @@ window.addEventListener('keydown', (e) => {
         player.isInteracting = false
         player.interactionAsset.dialogueIndex = 0
         document.querySelector('#characterDialogueBox').style.display = 'none'
+
+        if (onConversationEnd) {
+          onConversationEnd();
+        }
 
         break
     }
@@ -888,20 +949,24 @@ window.addEventListener('keydown', (e) => {
       player.isInteracting = true
       break
     case 'w':
+      hideCodeEntry();
       keys.w.pressed = true
       lastKey = 'w'
       break
     case 'a':
+      hideCodeEntry();
       keys.a.pressed = true
       lastKey = 'a'
       break
 
     case 's':
+      hideCodeEntry();
       keys.s.pressed = true
       lastKey = 's'
       break
 
     case 'd':
+      hideCodeEntry();
       keys.d.pressed = true
       lastKey = 'd'
       break
@@ -950,6 +1015,7 @@ function getPlayerWorldPositionFromURL() {
 //Mobile:
 let touchIntervals = {}
 function movePlayer(direction) {
+  hideCodeEntry();
   keys[direction].pressed = true
   lastKey = direction
   clearInterval(touchIntervals[direction])
@@ -978,7 +1044,7 @@ document.getElementById('interact').addEventListener('touchstart', () => {
   if (player.isInteracting) {
     player.interactionAsset.dialogueIndex++
 
-    const { dialogueIndex, dialogue } = player.interactionAsset
+    const { dialogueIndex, dialogue, onConversationEnd } = player.interactionAsset
     if (dialogueIndex <= dialogue.length - 1) {
       document.querySelector('#characterDialogueBox').innerHTML =
         player.interactionAsset.dialogue[dialogueIndex]
@@ -989,6 +1055,10 @@ document.getElementById('interact').addEventListener('touchstart', () => {
     player.isInteracting = false
     player.interactionAsset.dialogueIndex = 0
     document.querySelector('#characterDialogueBox').style.display = 'none'
+
+    if (onConversationEnd) {
+      onConversationEnd();
+    }
   } else {
     if (!player.interactionAsset) return
 

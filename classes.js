@@ -242,6 +242,20 @@ class Boundary {
   }
 }
 
+class BoundaryHome {
+  static width = 32
+  static height = 32
+  constructor({ position }) {
+    this.position = position
+    this.width = 32
+    this.height = 32
+  }
+
+  draw() {
+    c.fillStyle = 'rgba(255, 0, 0, 0)'
+    c.fillRect(this.position.x, this.position.y, this.width, this.height)
+  }
+}
 class Character extends Sprite {
   constructor({
     position,
@@ -252,7 +266,8 @@ class Character extends Sprite {
     animate = false,
     rotation = 0,
     scale = 1,
-    dialogue = ['']
+    dialogue = [''],
+    onConversationEnd = null
   }) {
     super({
       position,
@@ -265,8 +280,9 @@ class Character extends Sprite {
       scale
     })
 
-    this.dialogue = dialogue
-    this.dialogueIndex = 0
+    this.dialogue = dialogue;
+    this.dialogueIndex = 0;
+    this.onConversationEnd = onConversationEnd;
   }
 }
 

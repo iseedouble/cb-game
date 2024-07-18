@@ -23,7 +23,10 @@
       h1 {
         margin: 0;
       }
-
+      .fade-out {
+        opacity: 0;
+        transition: opacity 1s ease-out;
+      }
       button {
         border: 0;
         cursor: pointer;
@@ -60,10 +63,6 @@
         width: 36px;
         height: 36px;
       }
-      .fade-out {
-        opacity: 0;
-        transition: opacity 1s ease-out;
-      }
       #up {
         grid-column: 2;
         grid-row: 1;
@@ -91,19 +90,6 @@
   </head>
 
   <body>
-    <div
-      id="codeEntry"
-      style="
-        display: none;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 1000;
-      "
-    >
-      <input type="text" id="codeInput" placeholder="Enter code" />
-      <button id="submitCode">Submit</button>
-    </div>
     <div
       id="gameContainer"
       style="position: relative; width: 100%; height: 100%"
@@ -354,14 +340,12 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="data/audio.js"></script>
-    <script src="data/battleZones.js"></script>
-    <script src="data/collisions.js"></script>
+    <script src="data/home/collisionsHome.js"></script>
     <script src="data/attacks.js"></script>
     <script src="data/monsters.js"></script>
-    <script src="data/characters.js"></script>
+    <script src="data/home/charactersHome.js"></script>
     <script src="js/utils.js"></script>
     <script src="classes.js"></script>
-    <script src="index.js"></script>
-    <script src="battleScene.js"></script>
+    <script src="index3.js"></script>
   </body>
 </html>
