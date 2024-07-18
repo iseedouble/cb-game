@@ -223,7 +223,7 @@ charactersMap.forEach((row, i) => {
         },
         animate: true,
         scale: 0.2,
-        dialogue: ['zzzzzzzzzzzzzzzzz', '---..', 'let me sleep']
+        dialogue: ['zzzzzzzzzzzzzzzzz', '---..', 'laisse moi dormir']
       }))
 
     }
