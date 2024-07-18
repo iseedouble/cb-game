@@ -112,10 +112,10 @@ charactersMap.forEach((row, i) => {
                 dialogue: ['......'],
                 onConversationEnd: () => {
                     // Add your specific action here
-                    // document.body.classList.add('fade-out');
-                    // setTimeout(() => {
-                    //     window.location.href = 'game4.html?x=3118&y=1344'; // Replace with your desired HTML file name
-                    // }, 2000);
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = 'game4.html?x=3118&y=1344'; // Replace with your desired HTML file name
+                    }, 2000);
                     // For example, you can open the door, unlock a new area, etc.
                 }
             }))
