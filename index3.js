@@ -30,9 +30,9 @@ for (let i = 0; i < charactersMapDataHome.length; i += 15) {
 
 let playerWorldPosition = {
     x: 230, // Adjust this value to your desired starting x position
-    y: 380  // Adjust this value to your desired starting y position
+    y: 300  // Adjust this value to your desired starting y position
 }
-getPlayerWorldPositionFromURL();
+// getPlayerWorldPositionFromURL();
 
 const boundariesHome = []
 const offset = {

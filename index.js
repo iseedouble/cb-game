@@ -12,6 +12,17 @@ canvas.height = window.innerHeight
 
 // window.addEventListener('resize', resizeCanvas)
 
+function recalculateOffsets() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  offset.x = canvas.width / 2 - playerWorldPosition.x;
+  offset.y = canvas.height / 2 - playerWorldPosition.y;
+}
+
+window.addEventListener('load', recalculateOffsets);
+window.addEventListener('resize', recalculateOffsets);
+window.addEventListener('orientationchange', recalculateOffsets);
+
 const correctCode = "0728"; // Replace with your desired code
 
 // Function to show the code entry interface
@@ -42,13 +53,13 @@ document.getElementById('submitCode').addEventListener('click', () => {
 });
 
 
-window.addEventListener('resize', function () {
-  const url = new URL(window.location);
-  url.searchParams.set('x', playerWorldPosition.x);
-  url.searchParams.set('y', playerWorldPosition.y);
-  window.location.href = url.toString();
-  // location.reload();
-});
+// window.addEventListener('resize', function () {
+//   const url = new URL(window.location);
+//   url.searchParams.set('x', playerWorldPosition.x);
+//   url.searchParams.set('y', playerWorldPosition.y);
+//   window.location.href = url.toString();
+//   // location.reload();
+// });
 
 window.addEventListener('orientationchange', function () {
   location.reload();
@@ -72,9 +83,9 @@ for (let i = 0; i < charactersMapData.length; i += 140) {
 
 let playerWorldPosition = {
   x: 1510, // Adjust this value to your desired starting x position
-  y: 3000  // Adjust this value to your desired starting y position
+  y: 3050  // Adjust this value to your desired starting y position
 }
-getPlayerWorldPositionFromURL();
+// getPlayerWorldPositionFromURL();
 
 const boundaries = []
 const offset = {

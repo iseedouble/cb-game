@@ -71,9 +71,9 @@ for (let i = 0; i < charactersMapData.length; i += 140) {
 
 let playerWorldPosition = {
     x: 1510, // Adjust this value to your desired starting x position
-    y: 3000  // Adjust this value to your desired starting y position
+    y: 3050  // Adjust this value to your desired starting y position
 }
-getPlayerWorldPositionFromURL();
+// getPlayerWorldPositionFromURL();
 
 const boundaries = []
 const offset = {
