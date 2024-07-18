@@ -77,7 +77,9 @@
     </div>
     <script>
       function redirectToNextPage() {
-        window.location.replace('game.html?id=' + Date.now())
+        const uniqueId = Date.now()
+        // window.location.href = 'game.html?id=' + uniqueId
+        window.location.assign('game.html?id=' + uniqueId)
       }
     </script>
   </body>
