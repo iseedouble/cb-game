@@ -190,7 +190,7 @@ charactersMap.forEach((row, i) => {
           },
           animate: true,
           scale: 1.5,
-          dialogue: ['Steven: COUCOU!', 'BONNE FETE Camille!!!!', "Bienvenue dans ce jeu special que j'ai cree pour toi. Pendant 3 jours, tu auras un petit puzzle a resoudre.", "Aujourd'hui, tu parler a tous les chats pour un indice hihi!"]
+          dialogue: ['Steven: COUCOU!', 'BONNE FETE Camille!!!!', "Bienvenue dans ce jeu special que j'ai cree pour toi. Pendant 3 jours, tu auras un petit puzzle a resoudre.", "Aujourd'hui, tu dois parler a tous les chats pour un indice hihi!"]
         })
       )
     } else if (symbol === 1270) {
