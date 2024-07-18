@@ -76,10 +76,36 @@
       </p>
     </div>
     <script>
+      // Unregister any service workers
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .getRegistrations()
+          .then(function (registrations) {
+            for (let registration of registrations) {
+              registration.unregister()
+            }
+          })
+          .catch(function (err) {
+            console.log('Service Worker registration failed: ', err)
+          })
+      }
+
       function redirectToNextPage() {
-        const uniqueId = Date.now()
-        // window.location.href = 'game.html?id=' + uniqueId
-        window.location.assign('game.html?id=' + uniqueId)
+        // Clear all caches and then redirect
+        if ('caches' in window) {
+          caches
+            .keys()
+            .then(function (cacheNames) {
+              cacheNames.forEach(function (cacheName) {
+                caches.delete(cacheName)
+              })
+            })
+            .then(() => {
+              window.location.href = 'game.html?id=' + Date.now()
+            })
+        } else {
+          window.location.href = 'game.html?id=' + Date.now()
+        }
       }
     </script>
   </body>
