@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirect Example</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Set a flag in session storage
+        sessionStorage.setItem('visitedIndex', 'true')
+      })
+    </script>
     <style>
       body {
         background-image: url('background_cat.png');
@@ -58,8 +64,8 @@
       <button onclick="redirectToNextPage()">Clique Moi !</button>
       <p>
         <strong
-          >Tip: essaie de ne pas changer l'orientation de ton telephone et de ne pas refresh
-          HIHIHI</strong
+          >Tip: essaie de ne pas changer l'orientation de ton telephone et de ne
+          pas refresh HIHIHI</strong
         >
       </p>
     </div>
