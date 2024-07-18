@@ -1021,7 +1021,8 @@ function getPlayerWorldPositionFromURL() {
 }
 //Mobile:
 let touchIntervals = {}
-function movePlayer(direction) {
+function movePlayer(direction, event) {
+    event.preventDefault();
     hideCodeEntry();
     keys[direction].pressed = true
     lastKey = direction
@@ -1036,10 +1037,11 @@ function stopPlayer(direction) {
     keys[direction].pressed = false
 }
 
-document.getElementById('up').addEventListener('touchstart', () => movePlayer('w'))
-document.getElementById('left').addEventListener('touchstart', () => movePlayer('a'))
-document.getElementById('down').addEventListener('touchstart', () => movePlayer('s'))
-document.getElementById('right').addEventListener('touchstart', () => movePlayer('d'))
+
+document.getElementById('up').addEventListener('touchstart', (event) => movePlayer('w', event))
+document.getElementById('left').addEventListener('touchstart', (event) => movePlayer('a', event))
+document.getElementById('down').addEventListener('touchstart', (event) => movePlayer('s', event))
+document.getElementById('right').addEventListener('touchstart', (event) => movePlayer('d', event))
 
 
 document.getElementById('up').addEventListener('touchend', () => stopPlayer('w'))
