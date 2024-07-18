@@ -3,7 +3,7 @@ const c = canvas.getContext('2d')
 
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
-c.imageSmoothingEnabled = false;
+// c.imageSmoothingEnabled = false;
 
 // window.addEventListener('resize', function () {
 //     const url = new URL(window.location);
