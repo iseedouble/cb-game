@@ -15,7 +15,7 @@
         height: 100vh;
         display: flex;
         justify-content: center;
-        align-items: flex-end; /* Change to flex-end to position items at the bottom */
+        align-items: flex-end;
         text-align: center;
       }
       .container {
@@ -24,24 +24,32 @@
         max-width: 90%;
         width: 100%;
         box-sizing: border-box;
-        margin-bottom: 30px; /* Optional: add some margin to separate the button from the bottom of the screen */
+        margin-bottom: 30px;
       }
-      a,
       button {
         display: inline-block;
         margin: 10px;
-        padding: 10px 20px;
+        padding: 15px 30px;
         text-decoration: none;
-        background-color: #f0c040;
+        background-color: #ff7f50;
         color: #fff;
         border: none;
-        border-radius: 5px;
+        border-radius: 50px;
         cursor: pointer;
-        transition: background-color 0.3s;
+        font-size: 18px;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
       }
-      a:hover,
       button:hover {
-        background-color: #d89b30;
+        background-color: #ff6347;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+      }
+      button:active {
+        background-color: #ff4500;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: translateY(0);
       }
     </style>
   </head>
