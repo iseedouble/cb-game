@@ -19,9 +19,9 @@ window.addEventListener('resize', function () {
     // location.reload();
 });
 
-window.addEventListener('orientationchange', function () {
-    location.reload();
-});
+// window.addEventListener('orientationchange', function () {
+//     location.reload();
+// });
 // resizeCanvas()
 
 const collisionsMap = []
