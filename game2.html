@@ -8,6 +8,38 @@
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
+    <script>
+      function ensureFreshLoad() {
+        console.log('Fresh reload')
+        // Check if the session storage flag is set
+        if (!sessionStorage.getItem('visitedIndex')) {
+          // Redirect to the index page if the flag is not set
+          window.location.href = 'index.html'
+        } else {
+          // Clear the flag to enforce passing through index.html next time
+          sessionStorage.removeItem('visitedIndex')
+
+          // Check if the URL already has a query parameter
+          const urlParams = new URLSearchParams(window.location.search)
+          if (!urlParams.has('id')) {
+            // Add a unique query parameter and reload the page
+            const url = new URL(window.location)
+            url.searchParams.set('id', Date.now())
+            window.location.replace(url.toString())
+          }
+        }
+      }
+
+      function initializeGame() {
+        console.log('Initializing game...')
+        console.log('Player starting position:', playerWorldPosition)
+      }
+
+      window.addEventListener('load', () => {
+        ensureFreshLoad()
+        initializeGame()
+      })
+    </script>
     <style>
       * {
         font-family: 'Press Start 2P', cursive;
