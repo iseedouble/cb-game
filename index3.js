@@ -5,17 +5,17 @@ canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 c.imageSmoothingEnabled = false;
 
-window.addEventListener('resize', function () {
-    const url = new URL(window.location);
-    url.searchParams.set('x', playerWorldPosition.x);
-    url.searchParams.set('y', playerWorldPosition.y);
-    window.location.href = url.toString();
-    // location.reload();
-});
+// window.addEventListener('resize', function () {
+//     const url = new URL(window.location);
+//     url.searchParams.set('x', playerWorldPosition.x);
+//     url.searchParams.set('y', playerWorldPosition.y);
+//     window.location.href = url.toString();
+//     // location.reload();
+// });
 
-window.addEventListener('orientationchange', function () {
-    location.reload();
-});
+// window.addEventListener('orientationchange', function () {
+//     location.reload();
+// });
 
 const collisionsMapHome = []
 for (let i = 0; i < collisionsHome.length; i += 15) {
