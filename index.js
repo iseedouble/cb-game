@@ -306,7 +306,7 @@ charactersMap.forEach((row, i) => {
         },
         animate: true,
         scale: 0.2,
-        dialogue: ['Elo!', 'je fais du pain', "Si tu n'as pas remarqué mais cest du code morse!"]
+        dialogue: ['Elo!', 'Je fais du pain', "Si tu n'as pas remarqué, il y a du code morse dans les messages!"]
       }))
     }
     else if (symbol === 1276) {
